@@ -18,8 +18,11 @@ connectDB().then(() => {
 app.on("error", (error) => {
     console.error("Error:", error);
 })
+app.get("/", (req, res) => {
+    res.status(200).send({ message: "OK" })
+})
 function filterData(data) {
-    
+
     let emailList, emailTemplate, waitFor, waitType
     data.forEach((d) => {
         if (d.id === "t1LeadSource") {
